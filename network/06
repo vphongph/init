@@ -1,0 +1,2 @@
+Les fichiers de config réseau sont majoritairement dans le dossier /etc/ et le fichier qui indique le serveur DNS est le resolv.conf
+PATH = /etc/resolv.conf

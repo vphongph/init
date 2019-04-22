@@ -1,0 +1,3 @@
+nslookup slash16.org | head -12 | tail -8
+# if lookup from provider -> contains original files of domaine zone
+# -> authorative

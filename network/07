@@ -1,0 +1,4 @@
+nslookup slash16.org 8.8.8.8
+# the '#' is the port used
+# if lookup from provider -> contains original files of domaine zone
+# -> authorative
