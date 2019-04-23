@@ -1,7 +1,7 @@
-La commande whois fournit des infos sur une adresse ip ou un nom de domaine grâce aux registres internet, notamment l'hébergeur.
+La commande whois fournit des infos sur une adresse ip ou un nom de domaine grâce aux registres internet, notamment l'hébergeur
 => whois slash16.org -> Name server :
 	- NS-1236.AWSDNS-26.ORG
 	- NS-144.AWSDNS-18.COM
 	- NS-686.AWSDNS-21.NET
 	- NS-1989.AWSDNS-56.CO.UK
-L'hébergeur est donc Amazon Web Service.
+L'hébergeur est donc Amazon Web Services

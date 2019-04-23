@@ -1,0 +1,4 @@
+e1r3p4.42.fr.
+
+cmd utilisé : ifconfig en0 | grep inet | tail -1 | cut -d" " -f2 | xargs host | cut -d" " -f5
+cmd de la question 12 + xargs pour mettre le résultat en arg + host

@@ -1,0 +1,2 @@
+Les fichiers de config réseau sont majoritairement dans le dossier /etc/ et le fichier qui indique les entrées locales DNS est le hosts
+PATH = /etc/hosts

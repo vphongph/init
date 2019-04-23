@@ -1,0 +1,3 @@
+Pour faire pointer intra.42.fr sur l’adresse 46.19.122.85 (localement), il suffit de modifier le fichier hosts, en ajoutant l'adresse puis le nom.
+Exemple de cmd :
+echo "46.19.122.85	intra.42.fr" >> /etc/hosts

@@ -4,3 +4,4 @@ Name:	42.fr
 Address: 163.172.250.13
 
 cmd utilisé : nslookup 42.fr 8.8.8.8 | head -8 | tail -4
+nslookup depuis google pour obtenir adresse publique
