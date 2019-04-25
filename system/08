@@ -1,0 +1,7 @@
+Le fichier qui contient les clés publiques RSA des machines autorisées est :
+~/.ssh/authorized_keys
+
+Process :
+Créer une clé : ssh-keygen
+Copier la clé : ssh-copy-id [user@host]
+Valider

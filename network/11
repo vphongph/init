@@ -1,3 +1,3 @@
 Le nat-1 (10.60.1.11) est l'interface entre nous et l'extérieur
 C'est le Network Address Translation, il traduit l'adresse d'un réseau privé en adresse publique (internet)
-L'option -a permet aussi de le voir
+L'option -a permet aussi aussi de le confirmer

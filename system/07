@@ -1,0 +1,3 @@
+ps aux | grep sshd
+# plusieurs process forkés mais origine c'est le sbin du root
+# aussi visible avec "cat /var/run/sshd.pid"

@@ -1,0 +1,2 @@
+sudo fdisk -l --bytes
+# Liste les partitions existantes, --bytes permet l'affichage en bytes et non en bibytes

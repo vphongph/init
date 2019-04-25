@@ -1,0 +1,4 @@
+Il existe plusieurs fichiers indiquant la version de Debian, on peut prendre ceux-ci :
+/etc/debian_version (juste la version)
+/etc/os-release (plus d'infos, notamm le pretty name)
+/proc/version (version du noyau)

@@ -1,0 +1,3 @@
+Pour changer le nom du système de façon permanente il faut écrire dans :
+/etc/hostname
+# Penser à redémarrer le système

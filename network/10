@@ -1,4 +1,4 @@
 traceroute -a slash16.org
 # envoie des paquets avec durée de vie (TTL) progressive à chaque "hop", on obtient un retour
 # On a une * quand on a pas de retour (protégé)
-# option -a sert à obtenir l'ASN (Autonous System Number), les passerelles qui ont un nombre AS font parties d'Internet
+# option -a sert à obtenir l'ASN (Autonous System Number), les passerelles qui ont un nombre AS font parties d'Internet, le contraire n'est pas forcément vrai

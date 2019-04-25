@@ -1,0 +1,6 @@
+Le service permettant de lancer des tâche à horaires régulières est "cron"
+On configurer le service cron avec la commande "crontab -e"
+Ex pour ce projet :
+* * * * * date > [sortie souhaitée]
+-> * * * * * date > /dev/pts/0
+-> * * * * * date > /dev/tty1
