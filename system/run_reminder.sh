@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    anniv_test.sh                                      :+:      :+:    :+:    #
+#    run_reminder.sh                                    :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vphongph <vphongph@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/25 04:26:41 by vphongph          #+#    #+#              #
-#    Updated: 2019/04/25 06:55:16 by vphongph         ###   ########.fr        #
+#    Updated: 2019/04/26 01:20:51 by vphongph         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,24 +26,23 @@ grey="\033[38;5;242m"
 yellow="\033[38;5;178m"
 reset="\033[0m"
 
-hello=`printf "lol lol"`
-
+# hello=`printf "lol lol"`
 IFS=$'\n\t'
-
-
-anniv=(`cat anniv_date`)
+birthday=(`cat birthday_reminder`)
 # test=("${hello}")
 # echo ${test[0]}
 # echo ${test[1]}
 
-# quote=(`cat quote`)
+quote=(`cat quote_reminder`)
+task=(`cat task_reminder`)
 
 
-# for t in ${anniv[@]}
+
+# for t in ${birthday[@]}
 # do
 # 	echo $t
 # done
-# echo "Read file anniv"
+# echo "Read file birthday"
 #
 # for t in ${quote[@]}
 # do
@@ -51,33 +50,48 @@ anniv=(`cat anniv_date`)
 # done
 # echo "Read file quote"
 
-currentdate=`date +"%d/%m"`
-currentdate2=`date +"%d/%m %H:%M"`
-currentdate3=`date +"%d-%m"`
-currenttime=`date +"%H:%M"`
+date=`date +"%d/%m"`
+date2=`date +"%d-%m"`
+date_time=`date +"%d/%m %H:%M"`
+time=`date +"%H:%M"`
+
+lol=' haha
+
+qweqew
+
+
+
+					        '
 
 i=0
 
-while ((i<${#anniv[@]})) || ((i<${#quote[@]}))
+while ((i<${#birthday[@]}))
 do
-	if [ $currentdate = ${anniv[i]} ] || [ $currenttime = ${anniv[i]} ]
+	if [ $date = ${birthday[i]} ] || [ $time = ${birthday[i]} ] || [ $date_time = ${birthday[i]} ]
 	then
-		printf "C'est l'anniversaire de"$yellow" ${anniv[i+1]} "$blink"🎂"$reset"  !\n"
-	fi
-	if [ $currentdate3 = ${anniv[i]} ] 2>/dev/null || [ $currentdate2 = ${anniv[i]} ] 2>/dev/null
-	then
-		printf "${anniv[i+1]}\n"
+		echo -e "C'est l'anniversaire de"$yellow" ${birthday[i+1]} "$blink"🎂"$reset
 	fi
 	((i+=1))
 done
 
-printf $blue_light"Un rappel ? [y/n]\n"$reset
+i=0
 
-printf $yellow
-read -r input
-printf $reset
+while ((i<${#quote[@]}))
+do
+	if [ $date = ${quote[i]} ] || [ $time = ${quote[i]} ] || [ $date_time = ${quote[i]} ]
+	then
+		echo -e "${quote[i+1]}"
+	fi
+	((i+=1))
+done
 
-if [ $input = "y" ] 2>/dev/null
-then
-	echo lol
-fi
+i=0
+
+while ((i<${#task[@]}))
+do
+	if [ $date = ${task[i]} ] || [ $time = ${task[i]} ] || [ $date_time = ${task[i]} ]
+	then
+		echo -e $green_coa"-> "$reset"${task[i+1]}"
+	fi
+	((i+=1))
+done

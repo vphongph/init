@@ -1,1 +1,1 @@
-bash anniv_test.sh
+bash run_reminder.sh
