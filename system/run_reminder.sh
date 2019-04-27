@@ -6,7 +6,7 @@
 #    By: vphongph <vphongph@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/25 04:26:41 by vphongph          #+#    #+#              #
-#    Updated: 2019/04/26 19:27:32 by vphongph         ###   ########.fr        #
+#    Updated: 2019/04/27 01:25:50 by vphongph         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,42 +26,28 @@ grey="\033[38;5;242m"
 yellow="\033[38;5;178m"
 reset="\033[0m"
 
-# hello=`printf "lol lol"`
+
 IFS=$'\n\t'
-birthday=(`cat reminder_birthday`)
-# test=("${hello}")
-# echo ${test[0]}
-# echo ${test[1]}
 
-quote=(`cat reminder_quote`)
-task=(`cat reminder_task`)
+if [ $FROM = "birthday" ]
+then
+	birthday=(`cat reminder_birthday`)
+fi
 
+if [ $FROM = "quote" ]
+then
+	quote=(`cat reminder_quote`)
+fi
 
-
-# for t in ${birthday[@]}
-# do
-# 	echo $t
-# done
-# echo "Read file birthday"
-#
-# for t in ${quote[@]}
-# do
-# 	echo $t
-# done
-# echo "Read file quote"
+if [ $FROM = "task" ]
+then
+	task=(`cat reminder_task`)
+fi
 
 date=`date +"%d/%m"`
 date2=`date +"%d-%m"`
 date_time=`date +"%d/%m %H:%M"`
 time=`date +"%H:%M"`
-
-lol=' haha
-
-qweqew
-
-
-
-					        '
 
 i=0
 
@@ -89,7 +75,7 @@ i=0
 
 while ((i < ${#task[@]})) && [ $FROM = "task" ] 2>/dev/null
 do
-	if [ $date = ${task[i]} ] # || [ $time = ${task[i]} ] || [ $date_time = ${task[i]} ]
+	if [ $date_time = ${task[i]} ] # || [ $time = ${task[i]} ] || [ $date = ${task[i]} ]
 	then
 		echo -e $green_coa"-> "$reset"${task[i+1]}"
 	fi

@@ -1,0 +1,1 @@
+FROM=birthday bash run_reminder.sh > `cat reminder_output`
