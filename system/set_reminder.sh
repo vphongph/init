@@ -6,7 +6,7 @@
 #    By: vphongph <vphongph@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/26 01:20:45 by vphongph          #+#    #+#              #
-#    Updated: 2019/04/29 23:35:28 by vphongph         ###   ########.fr        #
+#    Updated: 2019/04/30 05:10:06 by vphongph         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,11 +163,11 @@ then
 	then
 		if [ $r_rate = "min" ]
 		then
-			printf "* * * * * FROM=$r_crontab bash run_reminder.sh > \`cat $file_rem_o\`" \
-			> $file_cr$r_crontab
+			printf "* * * * * FROM=$r_crontab bash run_reminder.sh > \
+\`cat $file_rem_o\`\n" > $file_cr$r_crontab
 		else
-			printf "0 * * * * FROM=$r_crontab bash run_reminder.sh > \`cat $file_rem_o\`" \
-			> $file_cr$r_crontab
+			printf "0 * * * * FROM=$r_crontab bash run_reminder.sh > \
+\`cat $file_rem_o\`\n" > $file_cr$r_crontab
 		fi
 		bool=1
 	fi
