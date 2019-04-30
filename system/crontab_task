@@ -1,1 +1,0 @@
-* * * * * FROM=task bash run_reminder.sh > `cat reminder_output`

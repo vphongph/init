@@ -1,5 +1,5 @@
-Le service permettant de lancer des tâche à horaires régulières est "cron"
-On configurer le service cron avec la commande "crontab -e"
+Le service permettant de lancer des tâches à horaires régulières est "cron"
+On peut configurer le service cron avec la commande "crontab -e"
 Ex pour ce projet :
 * * * * * date > [sortie souhaitée]
 -> * * * * * date > /dev/pts/0
