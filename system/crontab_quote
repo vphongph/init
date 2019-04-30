@@ -1,1 +1,1 @@
-FROM=quote bash run_reminder.sh > `cat reminder_output`
+15 00 30 * * FROM=quote bash run_reminder.sh > `cat reminder_output`

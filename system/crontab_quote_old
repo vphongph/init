@@ -1,1 +1,0 @@
-FROM=quote bash run_reminder.sh > `cat crontab_output`

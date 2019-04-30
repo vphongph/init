@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    set_reminder.sh                                    :+:      :+:    :+:    #
+#    debian_set_reminder.sh                             :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vphongph <vphongph@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/26 01:20:45 by vphongph          #+#    #+#              #
-#    Updated: 2019/04/29 23:35:28 by vphongph         ###   ########.fr        #
+#    Updated: 2019/04/30 05:05:43 by vphongph         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ file_rem_o="reminder_output"
 
 bool=0
 
+path_reminder=/home/vphongph/
+
 printf "\nIf you're running this script for the first time, please run all \
 the steps in the order.\n\n"$reset
 
@@ -76,7 +78,6 @@ then
 	printf "$r_entry : "
 	printf $yellow && read r_content && printf $yellow
 fi
-
 r_date_time=`echo $r_date_time | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'`
 r_content=`echo $r_content | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'`
 
@@ -91,9 +92,9 @@ if [ $r_confirmation = "y" ] 2>/dev/null
 then
 	if [ $r_entry = "birthday" ] 2>/dev/null
 	then
-		printf "$r_date_time	$r_content\n" >> $file_rem$r_entry
+		printf "$r_date_time	$r_content\n" >> $path_reminder$file_rem$r_entry
 	else
-		printf "\n$r_date_time\n$r_content\n" >> $file_rem$r_entry
+		printf "\n$r_date_time\n$r_content\n" >> $path_reminder$file_rem$r_entry
 	fi
 	bool=1
 fi
@@ -115,7 +116,7 @@ then
 		printf $yellow && read r_confirmation && printf $reset
 		if [ $r_confirmation = "y" ] 2>/dev/null
 		then
-			printf "$r_tty\n" > $file_rem_o
+			printf "$r_tty\n" > $path_reminder$file_rem_o
 			bool=1
 		fi
 	fi
@@ -123,7 +124,7 @@ fi
 
 #___________________________________refresh_____________________________________
 
-if [ $r_entry = "refresh" ] 2>/dev/null && ! [ -f $file_rem_o ]
+if [ $r_entry = "refresh" ] 2>/dev/null && ! [ -f $path_reminder$file_rem_o ]
 then
 	printf "Please update reminder output first\n"
 	false
@@ -136,9 +137,9 @@ then
 	printf $yellow && read r_crontab && printf $reset
 fi
 
-if ([ $r_crontab = "birthday" ] 2>/dev/null && ! [ -f $file_rem_b ])		\
-	|| ([ $r_crontab = "quote" ] 2>/dev/null	&& ! [ -f $file_rem_q ])	\
-	|| ([ $r_crontab = "task" ] 2>/dev/null && ! [ -f $file_rem_t ])
+if ([ $r_crontab = "birthday" ] 2>/dev/null && ! [ -f $path_reminder$file_rem_b ])		\
+	|| ([ $r_crontab = "quote" ] 2>/dev/null	&& ! [ -f $path_reminder$file_rem_q ])	\
+	|| ([ $r_crontab = "task" ] 2>/dev/null && ! [ -f $path_reminder$file_rem_t ])
 then
 	printf "Please add $r_crontab entry first\n"
 	false
@@ -163,12 +164,13 @@ then
 	then
 		if [ $r_rate = "min" ]
 		then
-			printf "* * * * * FROM=$r_crontab bash run_reminder.sh > \`cat $file_rem_o\`" \
-			> $file_cr$r_crontab
+			printf "* * * * * vphongph FROM=$r_crontab bash run_reminder.sh > \
+\`cat $path_reminder$file_rem_o\`\n" > /etc/cron.d/$file_cr$r_crontab
 		else
-			printf "0 * * * * FROM=$r_crontab bash run_reminder.sh > \`cat $file_rem_o\`" \
-			> $file_cr$r_crontab
+			printf "0 * * * * vphongph FROM=$r_crontab bash run_reminder.sh > \
+\`cat $path_reminder$file_rem_o\`\n" > /etc/cron.d/$file_cr$r_crontab
 		fi
+		# systemctl restart cron
 		bool=1
 	fi
 fi
@@ -233,36 +235,36 @@ $green_coa"every $r_rate on :\n"$reset
 		then
 			printf "`echo ${r_per_month_day[count]} \
 			| cut -d':' -f2` `echo ${r_per_month_day[count]} \
-			| cut -d':' -f1` * * * FROM=$r_crontab bash run_reminder.sh \
-> \`cat $file_rem_o\`\n" > $file_cr$r_crontab
+			| cut -d':' -f1` * * * vphongph FROM=$r_crontab bash run_reminder.sh \
+> \`cat $path_reminder$file_rem_o\`\n" > /etc/cron.d/$file_cr$r_crontab
 			((count += 1))
 			while [ ${r_per_month_day[count]} ]
 			do
 				printf "`echo ${r_per_month_day[count]} \
 				| cut -d':' -f2` `echo ${r_per_month_day[count]} \
-				| cut -d':' -f1` * * * FROM=$r_crontab bash run_reminder.sh \
-> \`cat $file_rem_o\`\n" >> $file_cr$r_crontab
+				| cut -d':' -f1` * * * vphongph FROM=$r_crontab bash run_reminder.sh \
+> \`cat $path_reminder$file_rem_o\`\n" >> /etc/cron.d/$file_cr$r_crontab
 				((count += 1))
 			done
-			bool=1
 		else
 			printf "`echo ${r_per_month_day[count]} \
 			| cut -d':' -f3` `echo ${r_per_month_day[count]} \
 			| cut -d':' -f2` `echo ${r_per_month_day[count]} \
-			| cut -d':' -f1` * * FROM=$r_crontab bash run_reminder.sh \
-> \`cat $file_rem_o\`\n" > $file_cr$r_crontab
+			| cut -d':' -f1` * * vphongph FROM=$r_crontab bash run_reminder.sh \
+> \`cat $path_reminder$file_rem_o\`\n" > /etc/cron.d/$file_cr$r_crontab
 			((count += 1))
 			while [ ${r_per_month_day[count]} ]
 			do
 				printf "`echo ${r_per_month_day[count]} \
 				| cut -d':' -f3` `echo ${r_per_month_day[count]} \
 				| cut -d':' -f2` `echo ${r_per_month_day[count]} \
-				| cut -d':' -f1` * * FROM=$r_crontab bash run_reminder.sh \
-> \`cat $file_rem_o\`\n" >> $file_cr$r_crontab
+				| cut -d':' -f1` * * vphongph FROM=$r_crontab bash run_reminder.sh \
+> \`cat $path_reminder$file_rem_o\`\n" >> /etc/cron.d/$file_cr$r_crontab
 				((count += 1))
 			done
-			bool=1
 		fi
+		# systemctl restart cron
+		bool=1
 	fi
 fi
 

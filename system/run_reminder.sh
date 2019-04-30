@@ -6,7 +6,7 @@
 #    By: vphongph <vphongph@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/25 04:26:41 by vphongph          #+#    #+#              #
-#    Updated: 2019/04/27 01:25:50 by vphongph         ###   ########.fr        #
+#    Updated: 2019/04/29 23:07:51 by vphongph         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ i=0
 
 while ((i < ${#birthday[@]})) && [ $FROM = "birthday" ] 2>/dev/null
 do
-	if [ $date = ${birthday[i]} ] || [ $time = ${birthday[i]} ] # || [ $date_time = ${birthday[i]} ]
+	if [ $date = ${birthday[i]} ] \
+	# || [ $time = ${birthday[i]} ]  || [ $date_time = ${birthday[i]} ]
 	then
 		echo -e "C'est l'anniversaire de"$yellow" ${birthday[i+1]} "$blink"🎂"$reset
 	fi
@@ -64,7 +65,8 @@ i=0
 
 while ((i < ${#quote[@]})) && [ $FROM = "quote" ] 2>/dev/null
 do
-	if [ $date = ${quote[i]} ] # || [ $time = ${quote[i]} ] || [ $date_time = ${quote[i]} ]
+	if [ $date = ${quote[i]} ] \
+	# || [ $time = ${quote[i]} ] || [ $date_time = ${quote[i]} ]
 	then
 		echo -e "${quote[i+1]}"
 	fi
