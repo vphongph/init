@@ -1,0 +1,2 @@
+getent passwd | cut -d':' -f1
+# equivalent à "cat /etc/passwd | cut -d':' -f1"

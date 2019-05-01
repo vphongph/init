@@ -1,0 +1,36 @@
+UNIT FILE                 STATE
+autovt@.service           enabled
+console-setup.service     enabled
+cron.service              enabled
+getty@.service            enabled
+keyboard-setup.service    enabled
+networking.service        enabled
+rsync.service             enabled
+rsyslog.service           enabled
+ssh.service               enabled
+sshd.service              enabled
+syslog.service            enabled
+systemd-timesyncd.service enabled
+
+ # avec systemctl list-unit-files --type=service  --state=enabled
+
+[ - ]  console-setup.sh
+[ + ]  cron
+[ + ]  dbus
+[ - ]  hwclock.sh
+[ - ]  keyboard-setup.sh
+[ + ]  kmod
+[ + ]  networking
+[ + ]  procps
+[ - ]  rsync
+[ + ]  rsyslog
+[ + ]  ssh
+[ - ]  sudo
+[ + ]  udev
+
+# variante avec sudo service --status-all
+
+Systemd est le "init system" qui devient le nouveau standard des distrib Linux, la commande avec systemctl (plus récente) semble plus juste.
+La différence qu'on peut voir avec service (utilisant SysV) peut se voir avec les "static".
+
+Ces types de services sont des "Daemon".

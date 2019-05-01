@@ -1,0 +1,17 @@
+#!/bin/bash
+
+MIN=`grep ^UID_MIN /etc/login.defs | cut -d'	' -f4 |  cut -d' ' -f2`
+MAX=`grep ^UID_MAX /etc/login.defs | cut -d'	' -f4 |  cut -d' ' -f2`
+
+
+# while ((i <= $MAX))
+# do
+# 	getent passwd $i
+# 	((i += 1))
+# done
+#
+#
+
+eval getent passwd {$MIN..$MAX} | cut -d':' -f1
+
+# Numéros des UID des utilisateurs réels sont fixés par le fichier /etc/login.defs, donc -> getent passwd {1000..60000} + cut name
