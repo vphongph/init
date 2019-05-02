@@ -5,7 +5,31 @@ yellow="\033[38;5;178m"
 blink="\033[5:m"
 reset="\033[0m"
 
-printf "User to "$blink$red"ANNIHILATE "$reset"?\n"
-printf $yellow && read r_user && printf $reset
-pkill -u $r_user
-deluser --remove-home --remove-all-files $r_user
+if (( `id -u` != 0 ))
+then
+	echo Only root can have this power
+	false
+	exit
+fi
+
+MIN=`grep ^UID_MIN /etc/login.defs | cut -d'	' -f4 |  cut -d' ' -f2`
+MAX=`grep ^UID_MAX /etc/login.defs | cut -d'	' -f4 |  cut -d' ' -f2`
+((MIN +=1))
+killable_user=`eval getent passwd {$MIN..$MAX} | cut -d':' -f1`
+
+echo "$killable_user"
+
+echo -e "\nUser to "$blink$red"ANNIHILATE "$reset"?"
+echo -ne $yellow && read r_user && echo -ne $reset
+
+if ! [ $r_user ]
+then
+	false
+	exit
+fi
+
+if [ `echo $killable_user | grep -w $r_user` ] 2>/dev/null
+then
+	pkill -u $r_user
+	deluser --remove-all-files
+fi
