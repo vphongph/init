@@ -1,0 +1,33 @@
+Pour se connecter en session ssh sur le nouvel utilisateur :
+
+Lancer depuis son terminal la commande ssh user@host
+Ex : ssh vphongph@10.11.200.38
+
+
+
+Pour se connecter en session graphique sur le nouvel utilisateur :
+
+1- Installer vncserver et une interface graphique
+Ex : apt-get install xfce4 xfce4-goodies gnome-icon-theme tightvncserver
+
+2- Lancer un serveur vnc depuis l'utilisateur en question
+Ex :
+su nouvo ou sudo su nouvo
+[mot de passe]
+vncserver
+[creer un mot de passe]
+
+3- Lancer depuis son terminal la commande open vnc://host:port
+Ex : open vnc://vphongph@10.11.200.38:5901
+
+Pour voir les vnc existant sur le user -> home/user/.vnc/
+Pour voir les vnc actifs : ps aux | grep vnc
+Pour voir les ports vnc : netstat -pl (installer net-tools au préalable)
+Pour supprimer un vnc : vncserver -kill :id (ex : 1) (depuis le user en question)
+
+
+
+Un fois l'interface graphique installée, le systeme va boot en graphique
+Pour revenir en terminal mode -> disable lightdm.service
+Pour afficher son state -> systemctl list-unit-files lightdm.service
+Ex : sudo systemctl disable lightdm.service

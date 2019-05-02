@@ -1,0 +1,11 @@
+#! /bin/bash
+
+red="\033[38;5;196m"
+yellow="\033[38;5;178m"
+blink="\033[5:m"
+reset="\033[0m"
+
+printf "User to "$blink$red"ANNIHILATE "$reset"?\n"
+printf $yellow && read r_user && printf $reset
+pkill -u $r_user
+deluser --remove-home --remove-all-files $r_user
