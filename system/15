@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo pkill -f "sudo tail -f /var/log/syslog"
 # pkill permet de kill par nom/commande plutôt que par pid
 # option -f permet d'avoir le full pattern

@@ -1,2 +1,4 @@
+#!/bin/bash
+
 du -h /var/
 # indique espace utilisé du dossier et sous-dossiers, option -h "human"

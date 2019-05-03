@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 netstat -rn | grep -A1 Gateway | head -n2
 # donne tous les connexions de notre machine, option -r donne les routing tables, et option -n convertit adresse en nombre (ici gagne du temps d'affichage)

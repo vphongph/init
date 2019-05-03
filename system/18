@@ -1,2 +1,4 @@
+#!/bin/bash
+
 sudo systemctl stop ssh
 # systemctl status ssh to check if effective

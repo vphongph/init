@@ -1,2 +1,4 @@
+#!/bin/bash
+
 df -h
 # option -h "human", variante "du -h" -> indique espace utilisé du dossier courant et sous-dossiers

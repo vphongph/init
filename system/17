@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ssh vphongph@10.11.200.38
 # protocole de communication -> Secure SHell -> user@host
-# L'ip de la VM peut varier 
+# L'ip de la VM peut varier

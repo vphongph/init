@@ -1,2 +1,4 @@
+#!/bin/bash
+
 systemctl status ssh
 # il y a aussi la cmd "sudo service ssh status", mais systemctl est plus récent

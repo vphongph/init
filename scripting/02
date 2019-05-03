@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 red="\033[38;5;196m"
 yellow="\033[38;5;178m"
@@ -35,7 +35,7 @@ fi
 if [ `echo "$killable_user" | grep -w $r_user` ] 2>/dev/null
 then
 	pkill -u $r_user
-	echo -e $red"\ngoing to hell..."$reset && deluser --remove-all-files $r_user  > out.log 2> /dev/null
+	echo -e $red"\ngoing to hell..."$reset && deluser --remove-all-files $r_user >/dev/null 2>/dev/null
 	echo -e $green_coa"\ngone 😈"$reset
 	bool=1
 else

@@ -1,2 +1,4 @@
+#!/bin/bash
+
 top
 # variante plus lisible si installée -> "htop"

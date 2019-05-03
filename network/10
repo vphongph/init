@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 traceroute -a slash16.org
 # envoie des paquets avec durée de vie (TTL) progressive à chaque "hop", on obtient un retour

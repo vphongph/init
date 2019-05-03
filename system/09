@@ -1,2 +1,4 @@
+#!/bin/bash
+
 who
 # vm + les autres connexions, on voit les connexions à distance par leur ip

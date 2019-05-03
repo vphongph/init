@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 ifconfig -l
 # option -l n'affiche que les noms des interfaces

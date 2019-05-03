@@ -1,2 +1,4 @@
+#!/bin/bash
+
 sudo tail -f /var/log/syslog &
 # Le '&' permet de lancer en background

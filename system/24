@@ -1,2 +1,4 @@
+#!/bin/bash
+
 dpkg-query -l
 # option -l liste les packages installés

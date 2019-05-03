@@ -1,2 +1,4 @@
+#!/bin/bash
+
 sudo systemctl restart ssh
 # pas de msg, pour verif, status -> since ...

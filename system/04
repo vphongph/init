@@ -1,2 +1,4 @@
+#!/bin/bash
+
 uptime
 # donne l'heure à laquelle la cmd a été lancée, le temps depuis lequel la machine a été démarrée, le nombre d'utilisateurs actifs sur le système et la charge moy (nb processus/min refresh 5s , 5min, 15min)

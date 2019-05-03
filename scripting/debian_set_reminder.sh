@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 blink="\033[5:m"
 blue="\033[38;5;26m"
