@@ -2,8 +2,11 @@
 
 red="\033[38;5;196m"
 yellow="\033[38;5;178m"
+green_coa="\033[38;5;47m"
 blink="\033[5:m"
 reset="\033[0m"
+
+bool=0;
 
 if (( `id -u` != 0 ))
 then
@@ -17,9 +20,10 @@ MAX=`grep ^UID_MAX /etc/login.defs | cut -d'	' -f4 |  cut -d' ' -f2`
 ((MIN +=1))
 killable_user=`eval getent passwd {$MIN..$MAX} | cut -d':' -f1`
 
+echo -e "killable user :\n"
 echo "$killable_user"
 
-echo -e "\nUser to "$blink$red"ANNIHILATE "$reset"?"
+echo -e "\nWho do you want to  "$red"A N N I H I L A T E  "$reset"?"
 echo -ne $yellow && read r_user && echo -ne $reset
 
 if ! [ $r_user ]
@@ -28,8 +32,19 @@ then
 	exit
 fi
 
-if [ `echo $killable_user | grep -w $r_user` ] 2>/dev/null
+if [ `echo "$killable_user" | grep -w $r_user` ] 2>/dev/null
 then
 	pkill -u $r_user
-	deluser --remove-all-files
+	echo -e $red"\ngoing to hell..."$reset && deluser --remove-all-files $r_user  > out.log 2> /dev/null
+	echo -e $green_coa"\ngone 😈"$reset
+	bool=1
+else
+	echo -e "\nOnly the livings can be killed 👿"
+fi
+
+if [ $bool = 0 ]
+then
+	false
+else
+	true
 fi
