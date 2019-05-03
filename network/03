@@ -1,2 +1,4 @@
+#! /bin/bash
+
 ifconfig en1 | grep ether | cut -d"	" -f2
 # en1 car wifi, ether car historiquement, adresse MAC -> adresse ethernet

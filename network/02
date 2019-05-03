@@ -1,3 +1,5 @@
+#! /bin/bash
+
 ifconfig en0 | grep broadcast | rev | cut -d" " -f-2 | rev
 # en0 car ici on est connecté via ethernet
 

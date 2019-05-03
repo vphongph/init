@@ -1,3 +1,5 @@
+#! /bin/bash
+
 nslookup slash16.org | head -12 | tail -8
 # si lookup depuis hébergeur -> contient les fichiers originaux du domaine
 # -> authorative

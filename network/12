@@ -1,3 +1,5 @@
+#! /bin/bash
+
 ifconfig en0 | grep inet | tail -1 | cut -d" " -f2
 # DHCP est un protocole de distribution d'ip sur un réseau
 # L'ip via ethernet est l'ip donné par le serveur DHCP

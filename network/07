@@ -1,3 +1,5 @@
+#! /bin/bash
+
 nslookup slash16.org 8.8.8.8
 # '#' correspond au port utilisé
 # si lookup depuis hébergeur -> contient les fichiers originaux du domaine
